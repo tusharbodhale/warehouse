@@ -1,0 +1,116 @@
+// VARIABLES  ―――――――――――――――――――――――――
+
+$mainTint: #2c2f36;
+$defaultTextColor: white;
+$primaryColor: #4881b8;
+$dangerColor: #cc0000;
+$controlsRatio: 1.3;
+
+
+// GLOBAL ―――――――――――――――――――――――――
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	height: 100vh;
+	font-size: 14px;
+	background: $mainTint;
+	color: $defaultTextColor;
+	padding: 30px;
+}
+
+#wrapper { margin: auto; }
+#buildZone { display: flex; }
+
+.canvas-container, #canvas { transition: all 0.2 ease-in-out; }
+
+#canvas {
+	background: darken($mainTint, 5%);
+	border-radius: 5px;
+}
+
+
+// CONTROLS  ―――――――――――――――――――――――――
+.floorplan-panel{
+    margin-left: 10px;
+	display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+
+    button{
+        margin:5px 5px;
+    }
+}
+.controls {
+	margin-left: 10px;
+	display: flex;
+	flex-direction: column;
+	
+	i {
+		background: $primaryColor;
+		padding: 15px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: #{$controlsRatio}em;
+		border-radius: 100%;
+		transition: all 0.2s ease-in-out;
+		margin: 5px 0;
+		
+		&:hover {
+			background: lighten($primaryColor, 8%);
+			cursor: pointer;
+		}
+	}
+	
+	#clear {
+		background: $dangerColor;
+		margin-top: auto;
+		&:hover { background: lighten($dangerColor, 8%); }
+	}
+}
+
+#floorplan{
+    display: none;
+    
+}
+#styleZone{
+    visibility: hidden;
+}
+.right-panel{
+    display: flex;
+    flex-direction: column;
+    width:480px;
+    height: 100vh;
+    overflow: scroll;
+}
+.sku{
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    .sku-button{
+        height: 80px;
+        width: 80px;
+    }
+    #biscuit{
+        background-color: #43c8bf;
+    }
+    #shampoo{
+        background-color: #896bc8;
+    }
+    #soap{
+        background-color: #e54f6b;
+    }
+    #chips{
+        background-color: #ffff99;
+    }
+    mat-form-field{
+        width:100px;
+    }
+}
+// STYLE-ZONE  ―――――――――――――――――――――――――
