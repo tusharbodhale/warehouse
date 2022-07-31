@@ -22,7 +22,7 @@
         </mat-card-actions>
       </mat-card>
       <mat-card id="controls" class="controls sku-panel" formArrayName="sku">
-        <mat-card-title>SKU</mat-card-title>
+        <mat-card-title>SKU <span class="sku-capacity">Total Capacity</span></mat-card-title>
         <div class="sku" [formGroupName]='0'>
           <div class="sku-button">
             <i id="biscuit" class="feather icon-square"></i>
@@ -40,6 +40,7 @@
             <mat-label>Height</mat-label>
             <input matInput formControlName="height">
           </mat-form-field>
+          <label class="p-1">{{skuCapacity[0]}}</label>
         </div>
         <div class="sku" [formGroupName]='1'>
           <div class="sku-button">
@@ -58,6 +59,7 @@
             <mat-label>Height</mat-label>
             <input matInput formControlName="height">
           </mat-form-field>
+          <label class="p-1">{{skuCapacity[1]}}</label>
         </div>
         <div class="sku" [formGroupName]='2'>
           <div class="sku-button">
@@ -76,6 +78,7 @@
             <mat-label>Height</mat-label>
             <input matInput formControlName="height">
           </mat-form-field>
+          <label class="p-1">{{skuCapacity[2]}}</label>
         </div>
         <div class="sku" [formGroupName]='3'>
           <div class="sku-button">
@@ -94,6 +97,7 @@
             <mat-label>Height</mat-label>
             <input matInput formControlName="height">
           </mat-form-field>
+          <label class="p-1">{{skuCapacity[3]}}</label>
         </div>
         <div class="sku">
           <i id="clear" class="feather icon-square"></i>

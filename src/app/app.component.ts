@@ -26,6 +26,8 @@ export class AppComponent implements OnInit{
   chipsTag;
   shampooTag;
 
+  skuCapacity=[0,0,0,0];
+
   skuHeight;
   skuWidth;
   skuLength;
@@ -156,7 +158,7 @@ export class AppComponent implements OnInit{
     return this.wareHouseForm.get('invoice') as FormArray;
   }
   intitialize(){
-    this.canvas = new fabric.Canvas('canvas', { width: this.screenWidth - 500, height: this.screenHeight - 5 });
+    this.canvas = new fabric.Canvas('canvas', { width: this.screenWidth - 520, height: this.screenHeight - 5 });
 
     //set bg image
     // this.addFloorplan();
@@ -281,10 +283,11 @@ export class AppComponent implements OnInit{
           volume: sku.length * sku.height * sku.width
       }
      });
-
+     this.skuCapacity = [0,0,0,0]
      this.skuData = this.skuData.map((sku, index)=>{
 
         sku.quantity = Math.floor(Math.floor( this.jsonOutput[index+2].volume) / sku.volume) ;
+        this.skuCapacity[index] = sku.quantity;
         return sku;
      })
      console.log(this.skuData);
@@ -310,7 +313,7 @@ export class AppComponent implements OnInit{
       }
     }
     this.invoice.value.forEach((item,index)=>{
-      let heatmap = (this.jsonOutput[index+2].area/this.skuData[0].quantity)* item.quantity;
+      let heatmap = (this.jsonOutput[index+2].area/this.skuData[index].quantity)* item.quantity;
       let originalRadius = (this.jsonOutput[index+2].actualHeight < this.jsonOutput[index+2].actualWidth?
                           this.jsonOutput[index+2].actualHeight:this.jsonOutput[index+2].actualWidth)/2;
 

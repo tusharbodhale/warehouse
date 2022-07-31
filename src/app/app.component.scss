@@ -82,12 +82,20 @@ body {
 #styleZone{
     visibility: hidden;
 }
+.p-1{
+    padding:5px;
+}
 .right-panel{
     display: flex;
     flex-direction: column;
-    width:480px;
+    width:500px;
     height: 100vh;
     overflow: scroll;
+    .sku-capacity{
+        display: block;
+        float: right;
+        font-size: 14px;
+    }
 }
 .sku{
     width: fit-content;
@@ -97,6 +105,7 @@ body {
         height: 80px;
         width: 80px;
     }
+   
     #biscuit{
         background-color: #43c8bf;
     }
